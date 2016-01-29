@@ -37,8 +37,9 @@ console.log(filterArray(testArray,positive));
 function longestWord(string){
     var stringArray = string.split(" ");
     var longest = stringArray.reduce(function(previousValue,currentValue){
-        if(previousValue.length>currentValue.length)
+        if(previousValue.length>currentValue.length){
             return previousValue;
+        }
         else{
             return currentValue;
         }
@@ -63,3 +64,31 @@ function countVowels(string){
 //Test
 testString = "Random words in this string aeiou"
 console.log(countVowels(testString));
+
+/******EXERCISE 6******/
+function highLow(array){
+    var obj = {highest:Infinity, lowest:-Infinity};
+    var high = array.reduce(function(previousValue,currentValue){
+        if(previousValue>currentValue){
+            return previousValue;
+        }
+        else{
+            return currentValue;
+        }
+    }, 0);
+    obj.highest = high;
+    var low = array.reduce(function(previousValue,currentValue){
+        if(previousValue<currentValue){
+            return previousValue;
+        }
+        else{
+            return currentValue;
+        }
+    }, 0);
+    obj.lowest = low;
+    return obj;
+}
+//Test
+testArray = [1, -10, 20, 40, 5];
+console.log(highLow(testArray));
+
