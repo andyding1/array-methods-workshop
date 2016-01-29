@@ -11,3 +11,15 @@ function printPositives(array){
 //Test
 var testArray = [-1,5,10,-9,20,-100];
 printPositives(testArray);
+
+/******EXERCISE 2******/
+function getPositives(array){
+    var positiveArray2 = [];
+    positiveArray2 = array.filter(function(number){
+        return number>0;
+    });
+    console.log(positiveArray2);
+}
+//Test
+var testArray = [-1,2,-3,4,-5,6];
+getPositives(testArray);
