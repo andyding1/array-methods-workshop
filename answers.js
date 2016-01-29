@@ -110,3 +110,57 @@ function highLowTwo(array){
 //Test
 testArray = [1,2];
 console.log(highLowTwo(testArray));
+
+/******EXERCISE 8******/
+function countChars(string){
+    var obj = {};
+    var characterArray = string.toLowerCase().split("");
+    characterArray = characterArray.filter(function(char){
+        return char !== ' '; 
+    });
+    characterArray.forEach(function(char){
+        var characterCount = characterArray.reduce(function(acc, element){
+            if(char===element){
+                acc++;
+            }
+            return acc;
+        }, 0);
+        obj[char] = characterCount;
+    });
+    console.log(obj);
+}
+//Test
+countChars("hello world");
+
+/******EXERCISE 9******/
+var database = [
+  {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  },
+  {
+    "id": "NkALmSWtUp",
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "email": "don@disney.com"
+  },
+  {
+    "id": "m7LPbJYSUg",
+    "firstName": "John",
+    "lastName": "Vader",
+    "email": "vader@darkside.com"
+  }
+];
+
+function peopleById(array){
+    var finalObject = array.reduce(function(currentObject,nextObject){
+        finalObject['id'] = currentObject.id;
+        return currentObject;
+    }, {});
+    return finalObject;
+}
+
+//Test
+console.log(peopleById(database));
