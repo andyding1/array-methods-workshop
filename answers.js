@@ -3,7 +3,7 @@ function printPositives(array){
     var positiveArray = [];
     array.forEach(function(number){
         if(number>0){
-            positiveArray.push(number)
+            positiveArray.push(number);
         }
     });
     console.log(positiveArray);
@@ -23,3 +23,28 @@ function getPositives(array){
 //Test
 var testArray = [-1,2,-3,4,-5,6];
 getPositives(testArray);
+
+/******EXERCISE 3******/
+function filterArray(array, fun){return array.filter(fun);}
+//Test
+function positive(num){
+    return num>0;
+}
+var testArray=[1,-2,2,0,3,-5,4];
+console.log(filterArray(testArray,positive));
+
+/******EXERCISE 4******/
+function longestWord(string){
+    var stringArray = string.split(" ");
+    var longest = stringArray.reduce(function(previousValue,currentValue){
+        if(previousValue.length>currentValue.length)
+            return previousValue;
+        else{
+            return currentValue;
+        }
+    });
+    return longest;
+}
+//Test
+var testString = "My name is Andy";
+console.log(longestWord(testString));
