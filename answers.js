@@ -42,9 +42,24 @@ function longestWord(string){
         else{
             return currentValue;
         }
-    });
+    }, '');
     return longest;
 }
 //Test
-var testString = "My name is Andy";
+var testString = "This phrase has superduper long word";
 console.log(longestWord(testString));
+
+/******EXERCISE 5******/
+function countVowels(string){
+    var characterArray = string.toLowerCase().split("");
+    var vowels = characterArray.reduce(function(acc,char){
+        if(['a', 'e', 'i', 'o', 'u'].indexOf(char) >= 0){
+            acc++;
+        }
+        return acc;
+    }, 0);
+    return vowels;
+}
+//Test
+testString = "Random words in this string aeiou"
+console.log(countVowels(testString));
