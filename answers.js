@@ -67,28 +67,46 @@ console.log(countVowels(testString));
 
 /******EXERCISE 6******/
 function highLow(array){
-    var obj = {highest:Infinity, lowest:-Infinity};
-    var high = array.reduce(function(previousValue,currentValue){
-        if(previousValue>currentValue){
-            return previousValue;
+    var obj = {highest:-Infinity, lowest:Infinity};
+    var objDetermine = array.reduce(function(acc, n){
+        if(n>acc.highest){
+            acc.highest=n;
         }
-        else{
-            return currentValue;
+        if(n<acc.lowest){
+            acc.lowest=n;
         }
-    }, 0);
-    obj.highest = high;
-    var low = array.reduce(function(previousValue,currentValue){
-        if(previousValue<currentValue){
-            return previousValue;
-        }
-        else{
-            return currentValue;
-        }
-    }, 0);
-    obj.lowest = low;
-    return obj;
+        return acc;
+    }, obj)
+    
+    return objDetermine;
 }
 //Test
 testArray = [1, -10, 20, 40, 5];
 console.log(highLow(testArray));
 
+/******EXERCISE 7******/
+function highLowTwo(array){
+    var obj = {highest:-Infinity, secondHighest:-Infinity,  lowest:Infinity, secondLowest:Infinity};
+    var objDetermine = array.reduce(function(acc, n){
+        
+        if(n>acc.highest){
+            acc.secondHighest=acc.highest;
+            acc.highest=n;
+        }
+        else if(n>acc.secondHighest){
+            acc.secondHighest = n;
+        }
+        if(n<acc.lowest){
+            acc.secondLowest=acc.lowest;
+            acc.lowest=n;
+        }else if(n<acc.secondLowest){
+            acc.secondLowest=n;
+        }
+        return acc;
+    }, obj)
+    
+    return objDetermine;
+}
+//Test
+testArray = [1,2];
+console.log(highLowTwo(testArray));
