@@ -155,12 +155,21 @@ var database = [
 ];
 
 function peopleById(array){
-    var finalObject = array.reduce(function(currentObject,nextObject){
-        finalObject['id'] = currentObject.id;
-        return currentObject;
+    return array.reduce(function(acc,n){
+        acc[n.id] = n;
+        return acc;
     }, {});
-    return finalObject;
 }
-
 //Test
 console.log(peopleById(database));
+
+/******EXERCISE 10******/
+function peopleByFirstName(array){
+    return array.reduce(function(acc,n){
+        if(acc[n.firstname] !== n.firstName){
+            acc[n.firstName] = n;
+        } 
+        acc[n.firstName] = n;
+        return acc;
+    }, {});
+}
