@@ -161,15 +161,19 @@ function peopleById(array){
     }, {});
 }
 //Test
-console.log(peopleById(database));
+//console.log(peopleById(database));
 
 /******EXERCISE 10******/
 function peopleByFirstName(array){
     return array.reduce(function(acc,n){
-        if(acc[n.firstname] !== n.firstName){
-            acc[n.firstName] = n;
-        } 
-        acc[n.firstName] = n;
+        if(acc[n.firstName] === undefined){
+            acc[n.firstName] = [n];
+        }
+        else{
+            acc[n.firstName].push(n);
+        }
         return acc;
     }, {});
 }
+//Test
+console.log(peopleByFirstName(database));
